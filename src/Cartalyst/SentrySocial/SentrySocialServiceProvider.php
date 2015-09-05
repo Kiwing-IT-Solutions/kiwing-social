@@ -31,7 +31,7 @@ class SentrySocialServiceProvider extends \Illuminate\Support\ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('cartalyst/sentry-social', 'cartalyst/sentry-social');
+		$this->package('Kiwing-IT-Solutions/kiwing-social', 'Kiwing-IT-Solutions/kiwing-social');
 	}
 
 	/**
@@ -54,7 +54,7 @@ class SentrySocialServiceProvider extends \Illuminate\Support\ServiceProvider {
 	{
 		$this->app['sentry.social.link'] = $this->app->share(function($app)
 		{
-			$model = $app['config']['cartalyst/sentry-social::link'];
+			$model = $app['config']['Kiwing-IT-Solutions/kiwing-social::link'];
 
 			return new LinkProvider($model);
 		});
@@ -72,7 +72,7 @@ class SentrySocialServiceProvider extends \Illuminate\Support\ServiceProvider {
 	{
 		$this->app['sentry.social.session'] = $this->app->share(function($app)
 		{
-			$key = $app['config']['cartalyst/sentry::cookie.key'].'_social';
+			$key = $app['config']['Kiwing-IT-Solutions/kiwing-social::cookie.key'].'_social';
 
 			return new IlluminateSession($app['session.store'], $key);
 		});
@@ -95,7 +95,7 @@ class SentrySocialServiceProvider extends \Illuminate\Support\ServiceProvider {
 				$app['events']
 			);
 
-			$connections = $app['config']['cartalyst/sentry-social::connections'];
+			$connections = $app['config']['Kiwing-IT-Solutions/kiwing-social::connections'];
 
 			$manager->addConnections($connections);
 
