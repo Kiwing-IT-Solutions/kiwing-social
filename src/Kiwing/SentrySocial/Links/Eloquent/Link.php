@@ -1,4 +1,4 @@
-<?php namespace Cartalyst\SentrySocial\Links\Eloquent;
+<?php namespace Kiwing\SentrySocial\Links\Eloquent;
 /**
  * Part of the Sentry Social package.
  *
@@ -19,7 +19,7 @@
  */
 
 use Cartalyst\Sentry\Users\UserInterface;
-use Cartalyst\SentrySocial\Links\LinkInterface;
+use Kiwing\SentrySocial\Links\LinkInterface;
 use Illuminate\Database\Eloquent\Model;
 use League\OAuth1\Client\Credentials\TokenCredentials as OAuth1TokenCredentials;
 use League\OAuth2\Client\Token\AccessToken as OAuth2AccessToken;

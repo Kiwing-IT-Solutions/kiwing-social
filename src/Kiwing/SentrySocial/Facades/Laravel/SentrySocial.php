@@ -1,4 +1,4 @@
-<?php namespace Cartalyst\SentrySocial\Links;
+<?php namespace Kiwing\SentrySocial\Facades\Laravel;
 /**
  * Part of the Sentry Social package.
  *
@@ -18,15 +18,18 @@
  * @link       http://cartalyst.com
  */
 
-interface ProviderInterface {
+use Illuminate\Support\Facades\Facade;
+
+class SentrySocial extends Facade {
 
 	/**
-	 * Finds a link (or creates one) for the given provider slug and uid.
+	 * Get the registered name of the component.
 	 *
-	 * @param  string  $slug
-	 * @param  mixed   $uid
-	 * @return \Cartalyst\SentrySocial\Links\LinkInterface
+	 * @return string
 	 */
-	public function findLink($slug, $uid);
+	protected static function getFacadeAccessor()
+	{
+		return 'sentry.social';
+	}
 
 }

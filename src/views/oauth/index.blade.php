@@ -1,4 +1,4 @@
-@extends('cartalyst/sentry-social::template')
+@extends('Kiwing-IT-Solutions/kiwing-social::template')
 
 @section('content')
 <div class="container">

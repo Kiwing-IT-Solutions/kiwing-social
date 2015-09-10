@@ -165,6 +165,6 @@ return array(
 	|
 	*/
 
-	'link' => 'Cartalyst\SentrySocial\Links\Eloquent\Link',
+	'link' => 'Kiwing\SentrySocial\Links\Eloquent\Link',
 
 );

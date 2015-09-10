@@ -1,4 +1,4 @@
-<?php namespace Cartalyst\SentrySocial\RequestProviders;
+<?php namespace Kiwing\SentrySocial;
 /**
  * Part of the Sentry Social package.
  *
@@ -18,12 +18,4 @@
  * @link       http://cartalyst.com
  */
 
-interface ProviderInterface {
-
-	public function getOAuth1TemporaryCredentialsIdentifier();
-
-	public function getOAuth1Verifier();
-
-	public function getOAuth2Code();
-
-}
+class AccessMissingException extends \RuntimeException {}

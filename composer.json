@@ -42,7 +42,7 @@
 			"src/migrations"
 		],
 		"psr-0": {
-			"Cartalyst\\SentrySocial": "src/"
+			"Kiwing\\SentrySocial": "src/"
 		}
 	},
 	"extra": {

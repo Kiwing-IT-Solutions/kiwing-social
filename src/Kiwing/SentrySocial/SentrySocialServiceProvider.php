@@ -1,4 +1,4 @@
-<?php namespace Cartalyst\SentrySocial;
+<?php namespace Kiwing\SentrySocial;
 /**
  * Part of the Sentry Social package.
  *
@@ -18,9 +18,9 @@
  * @link       http://cartalyst.com
  */
 
-use Cartalyst\SentrySocial\Links\Eloquent\Provider as LinkProvider;
-use Cartalyst\SentrySocial\RequestProviders\IlluminateProvider as RequestProvider;
-use Cartalyst\Sentry\Sessions\IlluminateSession;
+use Kiwing\SentrySocial\Links\Eloquent\Provider as LinkProvider;
+use Kiwing\SentrySocial\RequestProviders\IlluminateProvider as RequestProvider;
+use Kiwing\Sentry\Sessions\IlluminateSession;
 
 class SentrySocialServiceProvider extends \Illuminate\Support\ServiceProvider {
 

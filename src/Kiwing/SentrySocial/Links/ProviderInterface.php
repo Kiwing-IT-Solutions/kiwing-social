@@ -1,4 +1,4 @@
-<?php namespace Cartalyst\SentrySocial;
+<?php namespace Kiwing\SentrySocial\Links;
 /**
  * Part of the Sentry Social package.
  *
@@ -18,4 +18,15 @@
  * @link       http://cartalyst.com
  */
 
-class AccessMissingException extends \RuntimeException {}
+interface ProviderInterface {
+
+	/**
+	 * Finds a link (or creates one) for the given provider slug and uid.
+	 *
+	 * @param  string  $slug
+	 * @param  mixed   $uid
+	 * @return \Cartalyst\SentrySocial\Links\LinkInterface
+	 */
+	public function findLink($slug, $uid);
+
+}

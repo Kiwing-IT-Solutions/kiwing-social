@@ -1,4 +1,4 @@
-<?php namespace Cartalyst\SentrySocial;
+<?php namespace Kiwing\SentrySocial;
 /**
  * Part of the Sentry Social package.
  *
@@ -18,11 +18,11 @@
  * @link       http://cartalyst.com
  */
 
-use Cartalyst\SentrySocial\Links\Eloquent\Provider as LinkProvider;
-use Cartalyst\SentrySocial\Links\LinkInterface as LinkInterface;
-use Cartalyst\SentrySocial\Links\ProviderInterface as LinkProviderInterface;
-use Cartalyst\SentrySocial\RequestProviders\NativeProvider as NativeRequestProvider;
-use Cartalyst\SentrySocial\RequestProviders\ProviderInterface as RequestProviderInterface;
+use Kiwing\SentrySocial\Links\Eloquent\Provider as LinkProvider;
+use Kiwing\SentrySocial\Links\LinkInterface as LinkInterface;
+use Kiwing\SentrySocial\Links\ProviderInterface as LinkProviderInterface;
+use Kiwing\SentrySocial\RequestProviders\NativeProvider as NativeRequestProvider;
+use Kiwing\SentrySocial\RequestProviders\ProviderInterface as RequestProviderInterface;
 use Cartalyst\Sentry\Sentry;
 use Cartalyst\Sentry\Sessions\NativeSession;
 use Cartalyst\Sentry\Sessions\SessionInterface;

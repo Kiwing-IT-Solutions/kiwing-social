@@ -1,4 +1,4 @@
-<?php namespace Cartalyst\SentrySocial\Tests;
+<?php namespace Kiwing\SentrySocial\Tests;
 /**
  * Part of the Data Grid package.
  *
@@ -36,7 +36,7 @@ class EloquentLinkProviderTest extends PHPUnit_Framework_TestCase {
 
 	public function testFindingExistingLink()
 	{
-		$linkProvider = m::mock('Cartalyst\SentrySocial\Links\Eloquent\Provider[createModel]');
+		$linkProvider = m::mock('Kiwing\SentrySocial\Links\Eloquent\Provider[createModel]');
 		$linkProvider->shouldReceive('createModel')->once()->andReturn($query = m::mock('stdClass'));
 		$query->shouldReceive('newQuery')->once()->andReturn($query);
 		$query->shouldReceive('where')->with('provider', '=', 'slug')->once()->andReturn($query);
@@ -48,7 +48,7 @@ class EloquentLinkProviderTest extends PHPUnit_Framework_TestCase {
 
 	public function testFindingNonExistentLink()
 	{
-		$linkProvider = m::mock('Cartalyst\SentrySocial\Links\Eloquent\Provider[createModel]');
+		$linkProvider = m::mock('Kiwing\SentrySocial\Links\Eloquent\Provider[createModel]');
 
 		$linkProvider->shouldReceive('createModel')->ordered()->once()->andReturn($query = m::mock('stdClass'));
 		$query->shouldReceive('newQuery')->once()->andReturn($query);
@@ -70,7 +70,7 @@ class EloquentLinkProviderTest extends PHPUnit_Framework_TestCase {
 	{
 		$provider = new Provider;
 		$model = $provider->createModel();
-		$this->assertInstanceOf('Cartalyst\SentrySocial\Links\Eloquent\Link', $model);
+		$this->assertInstanceOf('Kiwing\SentrySocial\Links\Eloquent\Link', $model);
 	}
 
 }

@@ -1,4 +1,4 @@
-<?php namespace Cartalyst\SentrySocial\Links;
+<?php namespace Kiwing\SentrySocial\Links;
 /**
  * Part of the Sentry Social package.
  *

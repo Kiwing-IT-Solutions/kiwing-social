@@ -1,4 +1,4 @@
-<?php namespace Cartalyst\SentrySocial\Tests;
+<?php namespace Kiwing\SentrySocial\Tests;
 /**
  * Part of the Data Grid package.
  *
@@ -19,7 +19,7 @@
  */
 
 use Mockery as m;
-use Cartalyst\SentrySocial\Links\Eloquent\Link;
+use Kiwing\SentrySocial\Links\Eloquent\Link;
 use League\OAuth1\Client\Credentials\TokenCredentials as OAuth1TokenCredentials;
 use League\OAuth2\Client\Token\AccessToken as OAuth2AccessToken;
 use PHPUnit_Framework_TestCase;
@@ -48,7 +48,7 @@ class EloquentLinkTest extends PHPUnit_Framework_TestCase {
 
 	public function testStoringOAuth1Token()
 	{
-		$link = m::mock('Cartalyst\SentrySocial\Links\Eloquent\Link[save]');
+		$link = m::mock('Kiwing\SentrySocial\Links\Eloquent\Link[save]');
 		$tokenCredentials = new OAuth1TokenCredentials;
 		$tokenCredentials->setIdentifier('foo');
 		$tokenCredentials->setSecret('bar');
@@ -62,7 +62,7 @@ class EloquentLinkTest extends PHPUnit_Framework_TestCase {
 
 	public function testStoringOAuth2Token()
 	{
-		$link = m::mock('Cartalyst\SentrySocial\Links\Eloquent\Link[save]');
+		$link = m::mock('Kiwing\SentrySocial\Links\Eloquent\Link[save]');
 		$this->addMockConnection($link);
 		$link->getConnection()->getQueryGrammar()->shouldReceive('getDateFormat')->andReturn('Y-m-d H:i:s');
 		$accessToken = new OAuth2AccessToken(array(

@@ -1,4 +1,4 @@
-<?php namespace Cartalyst\SentrySocial\Tests;
+<?php namespace Kiwing\SentrySocial\Tests;
 /**
  * Part of the Data Grid package.
  *
@@ -19,7 +19,7 @@
  */
 
 use Mockery as m;
-use Cartalyst\SentrySocial\Manager;
+use Kiwing\SentrySocial\Manager;
 use InvalidProvider;
 use Illuminate\Events\Dispatcher;
 use PHPUnit_Framework_TestCase;
@@ -59,8 +59,8 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 	{
 		$this->manager = new Manager(
 			$this->sentry          = m::mock('Cartalyst\Sentry\Sentry'),
-			$this->linkProvider    = m::mock('Cartalyst\SentrySocial\Links\ProviderInterface'),
-			$this->requestProvider = m::mock('Cartalyst\SentrySocial\RequestProviders\ProviderInterface'),
+			$this->linkProvider    = m::mock('Kiwing\SentrySocial\Links\ProviderInterface'),
+			$this->requestProvider = m::mock('Kiwing\SentrySocial\RequestProviders\ProviderInterface'),
 			$this->session         = m::mock('Cartalyst\Sentry\Sessions\SessionInterface'),
 			$this->dispatcher      = new Dispatcher
 		);
@@ -207,7 +207,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 
 	public function testGettingOAuth1AuthorizationUrl()
 	{
-		$manager = m::mock('Cartalyst\SentrySocial\Manager[make,oauthVersion]');
+		$manager = m::mock('Kiwing\SentrySocial\Manager[make,oauthVersion]');
 		$manager->__construct($this->sentry, $this->linkProvider, $this->requestProvider, $this->session, $this->dispatcher);
 
 		$manager->shouldReceive('make')->with('foo', 'http://example.com/callback')->once()->andReturn($provider = m::mock('League\OAuth1\Client\Server\Server'));
@@ -221,7 +221,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 
 	public function testGettingOAuth2AuthorizationUrl()
 	{
-		$manager = m::mock('Cartalyst\SentrySocial\Manager[make,oauthVersion]');
+		$manager = m::mock('Kiwing\SentrySocial\Manager[make,oauthVersion]');
 		$manager->__construct($this->sentry, $this->linkProvider, $this->requestProvider, $this->session, $this->dispatcher);
 
 		$manager->shouldReceive('make')->with('foo', 'http://example.com/callback')->once()->andReturn($provider = m::mock('League\OAuth2\Client\Provider\IdentityProvider'));
@@ -236,7 +236,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 	 */
 	public function testAuthenticatingOAuth1WithMissingTemporaryIdentifier()
 	{
-		$manager = m::mock('Cartalyst\SentrySocial\Manager[make]');
+		$manager = m::mock('Kiwing\SentrySocial\Manager[make]');
 		$manager->__construct($this->sentry, $this->linkProvider, $this->requestProvider, $this->session, $this->dispatcher);
 
 		$manager->shouldReceive('make')->with('foo', 'http://example.com/callback')->once()->andReturn($provider = m::mock('League\OAuth1\Client\Server\Server'));
@@ -252,7 +252,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 	 */
 	public function testAuthenticatingOAuth1WithMissingVerifier()
 	{
-		$manager = m::mock('Cartalyst\SentrySocial\Manager[make]');
+		$manager = m::mock('Kiwing\SentrySocial\Manager[make]');
 		$manager->__construct($this->sentry, $this->linkProvider, $this->requestProvider, $this->session, $this->dispatcher);
 
 		$manager->shouldReceive('make')->with('foo', 'http://example.com/callback')->once()->andReturn($provider = m::mock('League\OAuth1\Client\Server\Server'));
@@ -265,7 +265,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 
 	public function testAuthenticatingOAuth1WithLinkedUser()
 	{
-		$manager = m::mock('Cartalyst\SentrySocial\Manager[make]');
+		$manager = m::mock('Kiwing\SentrySocial\Manager[make]');
 		$manager->__construct($this->sentry, $this->linkProvider, $this->requestProvider, $this->session, $this->dispatcher);
 
 		$manager->shouldReceive('make')->with('foo', 'http://example.com/callback')->once()->andReturn($provider = m::mock('League\OAuth1\Client\Server\Server'));
@@ -336,7 +336,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 
 	public function testAuthenticatingOAuth1WithUnlinkedExistingUser()
 	{
-		$manager = m::mock('Cartalyst\SentrySocial\Manager[make]');
+		$manager = m::mock('Kiwing\SentrySocial\Manager[make]');
 		$manager->__construct($this->sentry, $this->linkProvider, $this->requestProvider, $this->session, $this->dispatcher);
 
 		$manager->shouldReceive('make')->with('foo', 'http://example.com/callback')->once()->andReturn($provider = m::mock('League\OAuth1\Client\Server\Server'));
@@ -353,7 +353,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 		$provider->shouldReceive('getUserUid')->once()->andReturn(789);
 
 		// Finding an appropriate link
-		$this->linkProvider->shouldReceive('findLink')->with('foo', 789)->once()->andReturn($link = m::mock('Cartalyst\SentrySocial\Links\LinkInterface'));
+		$this->linkProvider->shouldReceive('findLink')->with('foo', 789)->once()->andReturn($link = m::mock('Kiwing\SentrySocial\Links\LinkInterface'));
 		$link->shouldReceive('storeToken')->with($tokenCredentials)->once();
 
 		// Logged in user
@@ -414,7 +414,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 
 	public function testAuthenticatingOAuth1WithUnlinkedNonExistentUser()
 	{
-		$manager = m::mock('Cartalyst\SentrySocial\Manager[make]');
+		$manager = m::mock('Kiwing\SentrySocial\Manager[make]');
 		$manager->__construct($this->sentry, $this->linkProvider, $this->requestProvider, $this->session, $this->dispatcher);
 
 		$manager->shouldReceive('make')->with('foo', 'http://example.com/callback')->once()->andReturn($provider = m::mock('League\OAuth1\Client\Server\Server'));
@@ -431,7 +431,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 		$provider->shouldReceive('getUserUid')->once()->andReturn(789);
 
 		// Finding an appropriate link
-		$this->linkProvider->shouldReceive('findLink')->with('foo', 789)->once()->andReturn($link = m::mock('Cartalyst\SentrySocial\Links\LinkInterface'));
+		$this->linkProvider->shouldReceive('findLink')->with('foo', 789)->once()->andReturn($link = m::mock('Kiwing\SentrySocial\Links\LinkInterface'));
 		$link->shouldReceive('storeToken')->with($tokenCredentials)->once();
 
 		// Logged in user
@@ -521,7 +521,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 
 	public function testAuthenticatingOAuth1LoggedInUser()
 	{
-		$manager = m::mock('Cartalyst\SentrySocial\Manager[make]');
+		$manager = m::mock('Kiwing\SentrySocial\Manager[make]');
 		$manager->__construct($this->sentry, $this->linkProvider, $this->requestProvider, $this->session, $this->dispatcher);
 
 		$manager->shouldReceive('make')->with('foo', 'http://example.com/callback')->once()->andReturn($provider = m::mock('League\OAuth1\Client\Server\Server'));
@@ -538,7 +538,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 		$provider->shouldReceive('getUserUid')->once()->andReturn(789);
 
 		// Finding an appropriate link
-		$this->linkProvider->shouldReceive('findLink')->with('foo', 789)->once()->andReturn($link = m::mock('Cartalyst\SentrySocial\Links\LinkInterface'));
+		$this->linkProvider->shouldReceive('findLink')->with('foo', 789)->once()->andReturn($link = m::mock('Kiwing\SentrySocial\Links\LinkInterface'));
 		$link->shouldReceive('storeToken')->with($tokenCredentials)->once();
 
 		// Logged in user
@@ -584,7 +584,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 	 */
 	public function testAuthenticatingOAuth2WithMissingCode()
 	{
-		$manager = m::mock('Cartalyst\SentrySocial\Manager[make]');
+		$manager = m::mock('Kiwing\SentrySocial\Manager[make]');
 		$manager->__construct($this->sentry, $this->linkProvider, $this->requestProvider, $this->session, $this->dispatcher);
 
 		$manager->shouldReceive('make')->with('foo', 'http://example.com/callback')->once()->andReturn($provider = m::mock('League\OAuth2\Client\Provider\IdentityProvider'));
@@ -611,7 +611,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 		$provider->shouldReceive('getUserUid')->once()->andReturn(789);
 
 		// Finding an appropriate link
-		$this->linkProvider->shouldReceive('findLink')->with('foo', 789)->once()->andReturn($link = m::mock('Cartalyst\SentrySocial\Links\LinkInterface'));
+		$this->linkProvider->shouldReceive('findLink')->with('foo', 789)->once()->andReturn($link = m::mock('Kiwing\SentrySocial\Links\LinkInterface'));
 		$link->shouldReceive('storeToken')->with($accessToken)->once();
 
 		// Logged in user
@@ -665,7 +665,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 
 	public function testAuthenticatingOAuth2WithUnlinkedExistingUser()
 	{
-		$manager = m::mock('Cartalyst\SentrySocial\Manager[make]');
+		$manager = m::mock('Kiwing\SentrySocial\Manager[make]');
 		$manager->__construct($this->sentry, $this->linkProvider, $this->requestProvider, $this->session, $this->dispatcher);
 
 		$manager->shouldReceive('make')->with('foo', 'http://example.com/callback')->once()->andReturn($provider = m::mock('League\OAuth2\Client\Provider\IdentityProvider'));
@@ -680,7 +680,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 		$provider->shouldReceive('getUserUid')->once()->andReturn(789);
 
 		// Finding an appropriate link
-		$this->linkProvider->shouldReceive('findLink')->with('foo', 789)->once()->andReturn($link = m::mock('Cartalyst\SentrySocial\Links\LinkInterface'));
+		$this->linkProvider->shouldReceive('findLink')->with('foo', 789)->once()->andReturn($link = m::mock('Kiwing\SentrySocial\Links\LinkInterface'));
 		$link->shouldReceive('storeToken')->with($accessToken)->once();
 
 		// Logged in user
@@ -741,7 +741,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 
 	public function testAuthenticatingOAuth2WithUnlinkedNonExistentUser()
 	{
-		$manager = m::mock('Cartalyst\SentrySocial\Manager[make]');
+		$manager = m::mock('Kiwing\SentrySocial\Manager[make]');
 		$manager->__construct($this->sentry, $this->linkProvider, $this->requestProvider, $this->session, $this->dispatcher);
 
 		$manager->shouldReceive('make')->with('foo', 'http://example.com/callback')->once()->andReturn($provider = m::mock('League\OAuth2\Client\Provider\IdentityProvider'));
@@ -756,7 +756,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 		$provider->shouldReceive('getUserUid')->once()->andReturn(789);
 
 		// Finding an appropriate link
-		$this->linkProvider->shouldReceive('findLink')->with('foo', 789)->once()->andReturn($link = m::mock('Cartalyst\SentrySocial\Links\LinkInterface'));
+		$this->linkProvider->shouldReceive('findLink')->with('foo', 789)->once()->andReturn($link = m::mock('Kiwing\SentrySocial\Links\LinkInterface'));
 		$link->shouldReceive('storeToken')->with($accessToken)->once();
 
 		// Logged in user
@@ -846,7 +846,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
 
 	public function testAuthenticatingOAuth2LoggedInUser()
 	{
-		$manager = m::mock('Cartalyst\SentrySocial\Manager[make]');
+		$manager = m::mock('Kiwing\SentrySocial\Manager[make]');
         $manager->__construct($this->sentry, $this->linkProvider, $this->requestProvider, $this->session, $this->dispatcher);
 
         $manager->shouldReceive('make')->with('foo', 'http://example.com/callback')->once()->andReturn($provider = m::mock('League\OAuth2\Client\Provider\IdentityProvider'));
@@ -861,7 +861,7 @@ class ManagerTest extends PHPUnit_Framework_TestCase {
         $provider->shouldReceive('getUserUid')->once()->andReturn(789);
 
         // Finding an appropriate link
-        $this->linkProvider->shouldReceive('findLink')->with('foo', 789)->once()->andReturn($link = m::mock('Cartalyst\SentrySocial\Links\LinkInterface'));
+        $this->linkProvider->shouldReceive('findLink')->with('foo', 789)->once()->andReturn($link = m::mock('Kiwing\SentrySocial\Links\LinkInterface'));
         $link->shouldReceive('storeToken')->with($accessToken)->once();
 
 		// Logged in user

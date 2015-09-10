@@ -1,4 +1,4 @@
-<?php namespace Cartalyst\SentrySocial\RequestProviders;
+<?php namespace Kiwing\SentrySocial\RequestProviders;
 /**
  * Part of the Sentry Social package.
  *

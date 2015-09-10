@@ -1,4 +1,4 @@
-<?php namespace Cartalyst\SentrySocial\Tests;
+<?php namespace Kiwing\SentrySocial\Tests;
 /**
  * Part of the Data Grid package.
  *
@@ -19,7 +19,7 @@
  */
 
 use Mockery as m;
-use Cartalyst\SentrySocial\RequestProviders\IlluminateProvider as Provider;
+use Kiwing\SentrySocial\RequestProviders\IlluminateProvider as Provider;
 use PHPUnit_Framework_TestCase;
 
 class IlluminateRequestProviderTest extends PHPUnit_Framework_TestCase {

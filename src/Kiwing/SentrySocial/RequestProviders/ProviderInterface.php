@@ -1,4 +1,4 @@
-<?php namespace Cartalyst\SentrySocial\Facades\Laravel;
+<?php namespace Kiwing\SentrySocial\RequestProviders;
 /**
  * Part of the Sentry Social package.
  *
@@ -18,18 +18,12 @@
  * @link       http://cartalyst.com
  */
 
-use Illuminate\Support\Facades\Facade;
+interface ProviderInterface {
 
-class SentrySocial extends Facade {
+	public function getOAuth1TemporaryCredentialsIdentifier();
 
-	/**
-	 * Get the registered name of the component.
-	 *
-	 * @return string
-	 */
-	protected static function getFacadeAccessor()
-	{
-		return 'sentry.social';
-	}
+	public function getOAuth1Verifier();
+
+	public function getOAuth2Code();
 
 }

@@ -1,4 +1,4 @@
-<?php namespace Cartalyst\SentrySocial\Links\Eloquent;
+<?php namespace Kiwing\SentrySocial\Links\Eloquent;
 /**
  * Part of the Sentry Social package.
  *
@@ -18,8 +18,8 @@
  * @link       http://cartalyst.com
  */
 
-use Cartalyst\SentrySocial\Services\ServiceInterface;
-use Cartalyst\SentrySocial\Links\ProviderInterface;
+use Kiwing\SentrySocial\Services\ServiceInterface;
+use Kiwing\SentrySocial\Links\ProviderInterface;
 use League\OAuth1\Client\Server\Server as OAuth1Server;
 use League\OAuth2\Client\Provider\IdentityProvider as OAuth2Provider;
 
