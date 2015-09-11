@@ -72,7 +72,7 @@ class SentrySocialServiceProvider extends \Illuminate\Support\ServiceProvider {
 	{
 		$this->app['sentry.social.session'] = $this->app->share(function($app)
 		{
-			$key = $app['config']['Kiwing-IT-Solutions/kiwing-social::cookie.key'].'_social';
+			$key = $app['config']['cartalyst/sentry::cookie.key'].'_social';
 
 			return new IlluminateSession($app['session.store'], $key);
 		});
