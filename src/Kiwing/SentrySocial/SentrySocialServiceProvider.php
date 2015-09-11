@@ -20,7 +20,7 @@
 
 use Kiwing\SentrySocial\Links\Eloquent\Provider as LinkProvider;
 use Kiwing\SentrySocial\RequestProviders\IlluminateProvider as RequestProvider;
-use Kiwing\Sentry\Sessions\IlluminateSession;
+use Cartalyst\Sentry\Sessions\IlluminateSession;
 
 class SentrySocialServiceProvider extends \Illuminate\Support\ServiceProvider {
 
