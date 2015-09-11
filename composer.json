@@ -37,7 +37,7 @@
 	},
 	"autoload": {
 		"classmap": [
-			"src/Cartalyst/SentrySocial/Exceptions.php",
+			"src/Kiwing/SentrySocial/Exceptions.php",
 			"src/controllers",
 			"src/migrations"
 		],
