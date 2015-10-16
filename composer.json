@@ -28,7 +28,7 @@
 		"php": ">=5.3.3",
 		"cartalyst/sentry": "~2.1",
 		"league/oauth1-client": "dev-master",
-		"league/oauth2-client": "dev-master"
+		"league/oauth2-client": "0.12.1"
 	},
 	"require-dev": {
 		"mockery/mockery": "0.7.2",
